@@ -11,12 +11,11 @@ class Model extends CI_model{
 
 
     function login_usuario($email,$password){
-        $this->db->select("correo,contraseña,nombre_usuario");
+        $this->db->select("correo,contraseña");
         $this->db->from("usuarios");
         $this->db->where('correo',$email);
         $this->db->where('contraseña',$password);
         $query = $this->db->get();
-
 
 
         return $query->result();
@@ -27,6 +26,7 @@ class Model extends CI_model{
     function registrar_usuario($form){
 
         $this->db->insert('usuarios',$form);
+
         return $this->db->insert_id();
     }
 

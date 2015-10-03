@@ -29,6 +29,7 @@
     </script> -->
 </head>
 <body>
+
   <header>
     <div class="container headersillo">
       <div class="row">
@@ -101,6 +102,7 @@
   </div>
   <div class="modal-body">
    <form action="" id="form-registrar"  onsubmit="return false;">
+     <img src="img/default.png" id="default-img" alt="img/default.png" hidden >   <!-- Imagen default ue aparece en toda las sesiones -->
     <br>
     <div class="input-group input-group-lg">
       <span class="input-group-addon" id="sizing-addon1">@</span>
@@ -475,8 +477,7 @@
 
         /*Se limpia el formulario cuando se manda*/
 
-     $('#email-log').val("");
-     $('#password-log').val("");
+
 
      var email = $('#email-log').val();
      var password =  $('#password-log').val();
@@ -491,12 +492,15 @@
 
          try{
            success = $.parseJSON(response);
-           alert("Bienvenido "+success[0].nombre_usuario);
+           alert("Bienvenido "+success[0].correo);
          }catch(err){
            alert("Los datos ingresados no coinciden con nuestros registros.");
          }
        }
      });
+
+     $('#email-log').val("");
+     $('#password-log').val("");
 
    });
 
@@ -523,7 +527,7 @@
      }); /*ajax*/
 
 
-     //console.log(data);
+     console.log(data);
 
 
    });

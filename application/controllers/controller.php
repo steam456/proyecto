@@ -30,6 +30,7 @@ class Controller extends CI_controller{
 
     function registrar(){
         $nombre = $this->input->post('nombre');
+        $apellidos = $this->input->post('apellidos');
         $password = $this->input->post('pass-reg');
         $email = $this->input->post('email');
 
@@ -37,8 +38,11 @@ class Controller extends CI_controller{
         $form = array(
            'correo'=> $email,
             'contraseña'=> $password,
-            'nombre_usuario'=> $nombre
+            'nombre'=> $nombre,
+            'apellido'=> $apellidos
         );
+
+
 
 
        if($this->model->registrar_usuario($form))
